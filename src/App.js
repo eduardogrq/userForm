@@ -1,18 +1,16 @@
-import { useState } from "react"
+import useFormulario from './hooks/useFormulario';
+import Input from './components/Input';
 
 const App = () => {
-  const [formulario, setFormulario] = useState({name: ''})
-  const handleChange = (e) => {
-    setFormulario({
-      ...formulario,
-      [e.target.name]: e.target.value
-    })
-  }
+
+  const [formulario, handleChange] = useFormulario({name: ''})
+
   console.log(formulario)
   return(
-    <form>
-      <input name="name" type="text" onChange={handleChange}/>
-    </form>
+    <div>
+      <Input name="name" type="text" onChange={handleChange} label="Name"/>
+    
+    </div>
   )
 }
 
